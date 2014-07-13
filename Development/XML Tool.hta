@@ -1,0 +1,108 @@
+<!doctype HTML>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=EDGE"/>
+		<meta name="application-name" content="XML Tool"/>
+		<meta name="description" content="Utility for Viewing, Transforming and Validating XML documents."/>
+		<meta name="author" content="Mr Tracy-Gregory J Gilmore"/>
+		<title>XML|XSL|XSD tool</title>
+
+		<link rel='stylesheet' type='text/css' href='XML Tool Styles.css'/>
+		<style>
+		</style>
+	</head>
+
+	<body class='mask'>
+		<header>
+			<nav class='row1'>
+				<nav class='buttonsLeft'>
+					<button title='XML data document mode' disabled='true' accessKey='M' tabIndex='1' class='xml'>X<p>M</p>L</button>
+					<button title='XML stylesheet document mode' disabled='true' accessKey='S' tabIndex='2' class='xsl'>X<p>S</p>L</button>
+					<button title='XML data schema mode' disabled='true' accessKey='D' tabIndex='3' class='xsd'>XS<p>D</p></button>
+				</nav>
+				<h1>XML | XSL | XSD Tool</h1>
+				<nav class='buttonsRight'>
+					<button title='Show (raw) document' disabled='true' accessKey='H' tabIndex='5'>S<p>h</p>ow</button>
+					<button title='Open document file' accessKey='O' tabIndex='4'><p>O</p>pen...</button>
+				</nav>
+			</nav>
+			<span class='xml'>
+				<nav class='row2'>
+					<label>Document</label>
+					<div class='field' title='Document filename'></div>
+				</nav>
+				<nav class='row3'>
+					<label for='divXPath' accessKey='P'>X<p>P</p>ath</label>
+					<div class='field' title='XPath query' id='divXPath' contentEditable='true' tabIndex='7'></div>
+				</nav>
+				<nav class='buttons'>
+					<button title='Show document' disabled='true' accessKey='I' tabIndex='6'>D<p>i</p>splay</button>
+					<button title='Perform XPath selection' disabled='true' accessKey='E' tabIndex='8'><p>E</p>xtract</button>
+				</nav>
+			</span>
+			<span class='xsl'>
+				<nav class='row2'>
+					<label>Stylesheet</label>
+					<div class='field' title='Stylesheet filename'></div>
+				</nav>
+				<nav class='row3'>
+					<button title='Copy presented data to windows clipboard' disabled='true' accessKey='C' tabIndex='10'><p>C</p>apture</button>
+					<button title='Save presented data to file' disabled='true' accessKey='v' tabIndex='11'>Sa<p>v</p>e...</button>
+				</nav>
+				<nav class='buttons'>
+					<button title='Present result XML transformation' disabled='true' accessKey='T' tabIndex='9'><p>T</p>ransform</button>
+					<button title='Render as HTML, the result XML transformation' disabled='true' accessKey='R' tabIndex='12'><p>R</p>ender</button>
+				</nav>
+			</span>
+			<span class='xsd'>
+				<nav class='row2'>
+					<label>Schema</label>
+					<div class='field' title='Schema filename'></div>
+				</nav>
+				<nav class='row3'>
+					<label>Namespace</label>
+					<div class='field' title='Extracted Namespace'></div>
+				</nav>
+				<nav class='buttons'>
+					<button title='Check the XML document against Schema' disabled='true' accessKey='V' tabIndex='13'><p>V</p>alidate</button>
+				</nav>
+			</span>
+		</header>
+
+		<main class='xml'><div class='mainPanel' title='XML Data document'></div></main>
+		<main class='xsl'><div class='mainPanel' title='XML Stylesheet'></div></main>
+		<main class='xsd'><div class='mainPanel' title='XML Schema'></div></main>
+
+		<footer>
+			<div class='statusBar' title='Status information'>Open an XML data document on which to work.</div>
+		</footer>
+
+		<a class='ccLic' title='This work is licensed under the
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+To view a copy of this license, click to visit http://creativecommons.org/licenses/by-nc-sa/4.0/.'
+			href='http://creativecommons.org/licenses/by-nc-sa/4.0/'></a>
+
+		<!-- Create the licensing object for the common dialog activex control -->
+		<object classid='clsid:5220cb21-c88d-11cf-b347-00aa00a28331'>
+			<param name='LPKPath' value='comdlg.lpk'/>
+		</object>
+
+		<!--Create the Common Dialog Box activex control-->
+		<object id='cDialog'
+			classid='CLSID:F9043C85-F6F2-101A-A3C9-08002B2F49FB'
+			codebase='http://activex.microsoft.com/controls/vb5/comdlg32.cab'>
+		</object>
+
+		<div class='fullscreenMask'>
+			<marquee>Creating licence file. Please press F5 to reload.</marquee>
+		</div>
+
+		<script type='text/javascript'>
+			"use strict";
+		</script>
+		<script src='XML Tool Model.js'></script>
+		<script src='XML Tool View.js'></script>
+		<script src='XML Tool Controller.js'></script>
+	</body>
+</html>

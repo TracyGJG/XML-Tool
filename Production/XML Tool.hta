@@ -1,0 +1,112 @@
+<!doctype HTML>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=EDGE"/>
+		<meta name="application-name" content="XML Tool"/>
+		<meta name="description" content="Utility for Viewing, Transforming and Validating XML documents."/>
+		<meta name="author" content="Mr Tracy-Gregory J Gilmore"/>
+		<title>XML|XSL|XSD tool</title>
+
+		<style>
+html,body{overflow:hidden;width:100%;height:100%;min-width:800px;min-height:400px}body{position:absolute;background-color:#BCD;color:#FFF;margin:0}body *{box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}header{position:absolute;top:5px;right:5px;height:100px;left:5px;overflow:hidden;text-align:center}header span{display:none}h1{font-size:20pt;margin:0;padding:2px;font-weight:bold}button{cursor:pointer}label p,button p{margin:0;padding:0;text-decoration:underline;display:inline}button[disabled='true']{display:none}main{position:absolute;top:105px;right:5px;bottom:35px;left:5px;background-color:white;color:black;border:1px solid black;border-bottom-color:silver;border-right-color:silver;display:none;overflow:auto}div.mainPanel{position:absolute;top:2px;left:4px}nav{position:absolute}nav.row1{right:0;height:36px;left:0}nav.row2,nav.row3{right:85px;height:26px;left:0}nav.row2{top:40px}nav.row3{top:70px}nav.buttons{top:40px;right:0;height:56px;width:80px}span.xsl nav.row3{padding-left:20px}span.xsl nav.row3 button,nav.buttons button{width:80px;height:26px;margin-bottom:4px;float:left}footer{position:absolute;height:25px;right:90px;bottom:5px;left:5px;border:1px solid black;border-bottom-color:white;border-right-color:white}body.xml .xml,body.xsl .xsl,body.xsd .xsd{display:block}nav.row1 button{width:80px;height:36px;margin:0}nav.buttonsLeft,nav.buttonsRight{top:0;height:36px}nav.buttonsLeft{left:0;width:240px;font-size:16pt}nav.buttonsLeft button{float:left;font-size:14pt}body.xml nav.buttonsLeft button.xml,body.xsl nav.buttonsLeft button.xsl,body.xsd nav.buttonsLeft button.xsd{color:white;font-weight:bold}nav.buttonsRight{right:0;width:160px}nav.buttonsRight button{float:right}label{position:absolute;padding-top:3px;font-size:12pt;text-align:right;top:0;width:96px;bottom:0;left:0}label:after{content:":"}div.field{position:absolute;top:0;right:0;bottom:0;left:100px;border:1px solid black;border-bottom-color:white;border-right-color:white;text-align:left;color:grey;padding:2px 4px 0;overflow:auto}div[contentEditable='true']{color:black;background-color:white;border-bottom-color:silver;border-right-color:silver}div.statusBar{position:absolute;top:2px;right:4px;bottom:0;left:4px;overflow:hidden;color:grey}object,body .fullscreenMask{display:none}body.mask .fullscreenMask{position:absolute;top:0;left:0;width:100%;height:100%;padding:20%;text-align:center;font-size:16pt;color:red;background-color:white;filter:alpha(opacity=70);opacity:.7;display:block}div.ValidationPass{color:green}div.ValidationFail{color:red}div.DisplayOutput{color:blue}a.ccLic{position:absolute;bottom:0;right:0;width:86px;height:30px;background-repeat:no-repeat;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFYAAAAeCAIAAAA5P36hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjExR/NCNwAADA1JREFUWEflmGdQVdcWx1FQsCtgwwIoJUpsiBQFLs8uGEvkaQwqjiiCDRDBghgpiiAYNIg0patoxJIPibFryow9Vcfe9SX2RNNz3+/edd/J5YDI+/JmfFmz584566y1917/vdq+JjExMU7OTi49Xv8bDgzHfBNHZ8etuyq27dn+NxwYjvkmLj1cVB+qj/Idm9fmrEtKS05OW7Eu973NlVtUArUPVkpOS347OGio/7Ahw4eMf3t83PI45lSJVR8l20pjlsSOmzBu8LDBwwOGTwkJTs1Mq9i9TSVWfWzYlBM2Nyxg9MhBQweNHPNG+LzwnMIclYwMzK8NAkydEzW3Z++e5hbmJkZk0ciiT98+kTGRdcEiLmFpZztbUWzRooWlpWX9+vV5trSyDJ0980X2bNm5ddLUyc2aNUPS1NTUysqqadOm+jl0bstJqOSVkVec7+PniwqSFhYWrVu3NjfXbd7UzEwzUJNXkq+Srw2C5SsTOnbqqF/UpF69etbW1s7Ozk5OTuyGV+F3tu2csCpRpagMzOPkMbh9+/bp6elXrlz5+eeff/nll7t37xYVFfXs2ZMZvDU+1d2haGtxb9fefPXw8KioqLh//z5aP/300/nz55cvXw6IZmZmM2aFqrQY6esyrKyt+DplypRjx479+OOPv/76K7+ffPIJnAYNGoB76rtpxiovhCAkbLpZAzM2gcHx8fFff/01u9fqia189dVXMAEFAcRCa9oNg0kAa9CgQffu3UPxzz//XLVqVWRkpEz1/Pnz2bNnI8DhGPsC5+/m7gZ/6dKlGKBfU0d//PGHPFy7ds3V1RVkI2IiFS1G9sYNrSwtW7ZsuXfvXpFUEfxWesrKz1K0aoYAgOvV153zm2+++d133xkmqEZ8Gj9+PGJsF5dWTZKZnYkHurm5cQgiDxANGzZEnjMRDqBMn66DKSo2SlEMmRmCTGxsrMj8/vvvubm5Go3G0dFxwIABlZWVML///ntcsmmzprlFeYoijsOKBw8eFMUTJ07MmjUrMDBwzpw5n376qTCPHj2KDKGtgF4DBEmpSTgSm5g7dy7Li+aLCIHo6GiE8TEUjefxG+THYviLQVRvMG4cFhbG+RtYWu3Tp09tITtb2RNB0cqyFRP26dOnpKTkyZMngjLzI8UBFhYWiuKRI0cI+DGBY2U5VkeMCidfN2/ejAocIVwmOTlZPi1atAjQE1cZdquGgB2wG3RGjRpl7IS1ECiANCoo4sMyD2mycZPGY8aMMQhptTdv3rSxsWmjp7Zt2+7bt8/wQatNStLtPnPDWhSXJsbz3L9//yZNmvBAGMrvyZMnQRCHevbsmWjx6u7ubtPBRrAb8YY/iLMKn5BhLewk7m7cuIHjMBvn+tlnn/H1+vXrSFImZKtqCOYtiGBJwCZj6ReqE+HhstfoRdEyz5r177KDrKwsg4RW+8033yCgEOnQ8EGrJW/BiVgQgWJQcBCKV69evXPnjo+Pjwg3btyYZLZw4UISkPHBECwIl1SUoujczblXr17gAn/dunVoYTZZQyRnzJgBh9Qjr927d1esVkNAkCAaFxcnohChhffiRZyDcDCYNZApLi7+4YcfhIl3oejm0U/moZrwumvXLvkK1QLBhQsX4ITO1uXUkWNGsnX8H/4HH3xAbhN5IVIJTCU8165dCzMrfz2KuENAQIDwb9++7eLiAl7yCmVkZCA5ZMgQefXz8+vi0EW2WgWC0u1ljRo1Atcvv/wSORAltIgiXIi1+cXyc+fOUeGYDkl+KWwPHjxA+NSpU7xSxrdU6mJhZfpKXsvLy/Ur6ujbb7+VFAMRw8S54YNWy3Iww+aGozhuQiAxTBWETzKTDsKY2F6PHj1IkKC/cqVuFRoBFG3tbUmZMiGegrc/evRIXqFly5YhqQSml5cXzYVYXQWCjKw1LEAUSPlhZ+yAInzmzJlLly6NGDFi+/btY8eOZS7OnF0mJiaSMknOCLMhObGcwlym2li2qb5p/fnz5+tX1NFvv/320UcfIQARosYZEaRgvrNiOYp0YjwfOnQIPjPLchwvPQUE0OHh4dIvtWvXjiYFl5EE5DXAiy5Ipj19+jQnRMaRxEFPQYyggi/wigxhO8DXW6yuAoF4L3GCHJSfn88reVFeIdDt0KEDTCXGFMJlOnbU9VGr166W2YC5U6dOSvaCqFIIQNnZ2QaWXtHf359oL91WhhZFDh+ZOnWqfD18+DCvUFRU1McffwxYn3/+OeinpKR07tyZqfp5GkKPFphXDgktIqVfv368UpIXL15MKeW5S5cuDx8+5OvOnTt5DZ83SxSrQJCQUgWCgoICXpUAw35I7MQp4OAsSrtiBEG6zEb7zCs7EAGoRgh2796NrwWMChAtho+fD7FAzROB9evXA5AoQmABk+XIcPhsfFK8aIEgDuvg4CB2Xr582dPTEwFUmN/b25uMA58sQ0NB3S2uKBHFKhC8m52JDm285Bs6QpSbN2+OW/JMr0pSHDduHJNS2yk2BAJTsxjClHcU+aT0KlyNXPv15QDz8vLYMTIkVGyDcnJyeIVoVAif1m1aEziixdhQmNOyVUv8XFIShNMBBPGMY1IpwD01NZWtemu8jdtK6hEbphmVbEroffHFF1Rf8pccFfyhQ4eiOC96nqJVBYKy7eXgjcTZs2dRYN9LliwRICGuHLgZWMppCw0cOFBcXU4YvJTWgLFpc6GDkwPb4sSosuzpX3oiGoFsxYoVRGyLli24/CkqMpJSkwlyMKWs0o8zv0IgPmHCBNbitq+cpDKCgiexYRx5//79grsQz8QRZQJF7qnGwFWBgMG5IUTDp2geP36c2sMhyGlDjx8/Jp+TWqhPWCVM6RHdvTyUqWQUby3h3gYKdCPgRa8aERFBfhGXea37a+/l/dWuG4/09zLs7O2QIcnReuH/FAicDifCs4b5Dyt7v1ylImNedAT5EiBIlsHBwaRkegqe4cCfHTVHJa+GYMHiBazKYVJUxLa60K1bt8Sk2LhYZSplADndqGagHw6PK4EFfu7h5RGzJMbYZaoPWlUKBJ1/s+bNGpo3RLedTfshI4aqrnrVR0HpxrcmTezq2JUOFS0cysHJceLkiQWlBSpJhhoC9qT7F8XEZPDgwdQSg4m1Eo5AgKHS1aHrS/99KtlWivca+2FdBtMWbSmmbVHxXzpoUlixdqB1EHRz6U4WYJS/r7u344Egh0m4nyoOqxNRHRQUhLC5hbkcDv4ps70qA/N1NQObIe6ea7LWYEb04gXSyfn6+kotqZHItNLGIxwZo7vtrkhfSUKV2V4VwnxM+IucXnOWNLNgSYy0wJgUEhLCTYH+j2IJkcwPHDgwbdo09BGwaNQIyFDhutLJtpN+mlecNAM1EtK0Cbo4+Q+Rh0nO1tbWPBhYJiav9+qBGMKkLho1A7cqTZ48ma6urKyMmxV3CjousKNX27Rpk7S6NRJ9Oip2dnacAX0EhYArAI3djh076FAMQjURJ0e1oh3gmiRbTUhIoDTI17qSj8ZHcg95Kz4x3lvjY2ll+M8TYl7r1ta+/9DQ1UtiI1e5ubvJ1+qUmZnJnZL8SmPL7nEoNocxaWlpBomaiE6cWNuzZw89H5cFqhrqdAShoaHnz58HEYNcNcJaCjlXKVzV3d3d1taWixztrHJJqyvZd7FPyUjBPBlbKrfkFudx4Iz8kgLjHJuQkmjTUXdxeBEBwcWLF/fu3UtThBPhCMTU1atXVRdhFQEBDQgdF20VEFDbaZnhS3lXGrbq1K1bNyo6fSEQI8mNjn6cmx4XZINE3YmrnrevN41axa4aahjBsiz5HXdPd3U6qUZAsHr16jZt2nAsM2fOhFNZWblw4UL5+iICAo6dWy2XfyAYPXo0OHKSOAUeVEsE0SDjcSjSj9OGkbOB4+bNm0VFRQaJ/5bA28raqr/PgH9OHB8SNj1kZkjgW4Ge/T1pbwwSLyPxgg8//JAemfYOTmlpKW2ifH0RCQQENjdrIKBb466Nh2NPYWGhQagm4lJPq4bB+AINPkuTd7gsMhv5xSD0Pyacv6ueOEDh4BHSTdZCHLi9vT0HQDdJUuSB+O/bt6+rq6txPq6RuKRTzrnLEGtct4TJbEwlz2p66Yz/32RqavpvznjxjiqjWW4AAAAASUVORK5CYII=)}
+		</style>
+	</head>
+
+	<body class='mask'>
+		<header>
+			<nav class='row1'>
+				<nav class='buttonsLeft'>
+					<button title='XML data document mode' disabled='true' accessKey='M' tabIndex='1' class='xml'>X<p>M</p>L</button>
+					<button title='XML stylesheet document mode' disabled='true' accessKey='S' tabIndex='2' class='xsl'>X<p>S</p>L</button>
+					<button title='XML data schema mode' disabled='true' accessKey='D' tabIndex='3' class='xsd'>XS<p>D</p></button>
+				</nav>
+				<h1>XML | XSL | XSD Tool</h1>
+				<nav class='buttonsRight'>
+					<button title='Show (raw) document' disabled='true' accessKey='H' tabIndex='5'>S<p>h</p>ow</button>
+					<button title='Open document file' accessKey='O' tabIndex='4'><p>O</p>pen...</button>
+				</nav>
+			</nav>
+			<span class='xml'>
+				<nav class='row2'>
+					<label>Document</label>
+					<div class='field' title='Document filename'></div>
+				</nav>
+				<nav class='row3'>
+					<label for='divXPath' accessKey='P'>X<p>P</p>ath</label>
+					<div class='field' title='XPath query' id='divXPath' contentEditable='true' tabIndex='7'></div>
+				</nav>
+				<nav class='buttons'>
+					<button title='Show document' disabled='true' accessKey='I' tabIndex='6'>D<p>i</p>splay</button>
+					<button title='Perform XPath selection' disabled='true' accessKey='E' tabIndex='8'><p>E</p>xtract</button>
+				</nav>
+			</span>
+			<span class='xsl'>
+				<nav class='row2'>
+					<label>Stylesheet</label>
+					<div class='field' title='Stylesheet filename'></div>
+				</nav>
+				<nav class='row3'>
+					<button title='Copy presented data to windows clipboard' disabled='true' accessKey='C' tabIndex='10'><p>C</p>apture</button>
+					<button title='Save presented data to file' disabled='true' accessKey='v' tabIndex='11'>Sa<p>v</p>e...</button>
+				</nav>
+				<nav class='buttons'>
+					<button title='Present result XML transformation' disabled='true' accessKey='T' tabIndex='9'><p>T</p>ransform</button>
+					<button title='Render as HTML, the result XML transformation' disabled='true' accessKey='R' tabIndex='12'><p>R</p>ender</button>
+				</nav>
+			</span>
+			<span class='xsd'>
+				<nav class='row2'>
+					<label>Schema</label>
+					<div class='field' title='Schema filename'></div>
+				</nav>
+				<nav class='row3'>
+					<label>Namespace</label>
+					<div class='field' title='Extracted Namespace'></div>
+				</nav>
+				<nav class='buttons'>
+					<button title='Check the XML document against Schema' disabled='true' accessKey='V' tabIndex='13'><p>V</p>alidate</button>
+				</nav>
+			</span>
+		</header>
+
+		<main class='xml'><div class='mainPanel' title='XML Data document'></div></main>
+		<main class='xsl'><div class='mainPanel' title='XML Stylesheet'></div></main>
+		<main class='xsd'><div class='mainPanel' title='XML Schema'></div></main>
+
+		<footer>
+			<div class='statusBar' title='Status information'>XML Tool developed by Mr Tracy-Gregory J Gilmore.</div>
+		</footer>
+
+		<a class='ccLic' title='This work is licensed under the
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+To view a copy of this license, click to visit http://creativecommons.org/licenses/by-nc-sa/4.0/.'
+			href='http://creativecommons.org/licenses/by-nc-sa/4.0/'></a>
+
+		<!-- Create the licensing object for the common dialog activex control -->
+		<object classid='clsid:5220cb21-c88d-11cf-b347-00aa00a28331'>
+			<param name='LPKPath' value='comdlg.lpk'/>
+		</object>
+
+		<!--Create the Common Dialog Box activex control-->
+		<object id='cDialog'
+			classid='CLSID:F9043C85-F6F2-101A-A3C9-08002B2F49FB'
+			codebase='http://activex.microsoft.com/controls/vb5/comdlg32.cab'>
+		</object>
+
+		<div class='fullscreenMask'>
+			<marquee>Creating licence file. Please press F5 to reload.</marquee>
+		</div>
+
+		<script type='text/javascript'>
+			"use strict";
+
+		// Model
+var clsDataModel=function(){var g;var e=null;var b="Msxml2.DOMDocument.6.0";var d="Msxml2.XMLSchemaCache.6.0";var f="<?xml version='1.0'?><xsl:stylesheet version='2.0' xmlns:xsl='http://www.w3.org/1999/XSL/Transform'>	<xsl:template match='/*'>		<div style='background-color:AliceBlue; padding:20px;'>			<xsl:call-template name='ShowEntity'>				<xsl:with-param name='Indent' select='\"\"' />			</xsl:call-template>		</div>	</xsl:template>	<xsl:template name='ShowEntity'>		<xsl:param name='Indent' />		<xsl:if test='count(*) &gt; 0'>			<xsl:value-of select='$Indent' /><span style='color:orange;'>&lt;</span><span style='color:green;'>			<xsl:value-of select='name()' /></span><xsl:call-template name='ShowAttrib' />			<span style='color:orange;'>&gt;</span><br />			<xsl:for-each select='*'>				<xsl:call-template name='ShowEntity'>					<xsl:with-param name='Indent' select='concat($Indent,\"&#xa0;&#xa0;&#xa0;&#xa0;\")' />				</xsl:call-template>			</xsl:for-each>			<xsl:value-of select='$Indent' /><span style='color:orange;'>&lt;/</span><span style='color:green;'>			<xsl:value-of select='name()' /></span><span style='color:orange;'>&gt;</span><br />		</xsl:if>		<xsl:if test='count(*) = 0'>			<xsl:if test='. = \"\"'>				<xsl:value-of select='$Indent' /><span style='color:red;'>&lt;</span><span style='color:green;'>				<xsl:value-of select='name()' /></span><xsl:call-template name='ShowAttrib' />&#xa0;<span style='color:red;'>/&gt;</span><br />			</xsl:if>			<xsl:if test='. != \"\"'>				<xsl:value-of select='$Indent' /><span style='color:red;'>&lt;</span><span style='color:green;'>				<xsl:value-of select='name()' /></span><xsl:call-template name='ShowAttrib' /><span style='color:red;'>&gt;</span>				<span style='color:magenta;'><xsl:value-of select='.' /></span><span style='color:red;'>&lt;/</span><span style='color:green;'>				<xsl:value-of select='name()' /></span><span style='color:red;'>&gt;</span><br />			</xsl:if>		</xsl:if>	</xsl:template>	<xsl:template name='ShowAttrib'>		<xsl:for-each select='attribute::*'>			&#xa0;<span style='color:blue;'><xsl:value-of select='name()' />=&quot;</span><span style='color:black;'>			<xsl:value-of select='.' /></span><span style='color:blue;'>&quot;</span>		</xsl:for-each>	</xsl:template></xsl:stylesheet>";var h="";var c={xml:"XML Document (XML)",xsl:"XML Stylesheet (XSL)",xsd:"XML Schema (XSD)"};var a={xml:null,xsl:null,xsd:null};var i={setController:function(j){g=j;e=g.createXML(f)},openXMLDocument:function(o,m){var j="";var l=null;var n=null;if(o){n=new ActiveXObject(b);n.async=false;n.validateOnParse=false;n.resolveExternals=true;var k=o.match(/...$/i);l=k[0].toLowerCase();j=c[l];if("xsd"===l){h="";if(a.xml){h=a.xml.documentElement.namespaceURI}}else{n.setProperty("SelectionLanguage","XPath")}if("xsl"===l){n.setProperty("AllowDocumentFunction","true")}if(!!j){n.load(o)}else{n.loadXML(o)}if(!!n.parseError.errorCode){var p=n.parseError;alert("ERROR: "+j+" load failed ("+p.errorCode+"): "+p.reason);n=null}else{a[m]=n}}return !!n},getNamespace:function(){return h},getXML_Text:function(j){return a[j]?a[j].xml:null},transformDocument:function(m){var l=(m)?e:a.xsl;var j={output:"",status:""};if(a.xml&&l){try{j.output=a.xml.transformNode(l)}catch(k){j.output="Error: "+k.message+" ("+k.code+")";j.status="Failure during XML Transform."}}else{j.status="No Data or stylesheet to perform transform."}return j},selectXPath:function(l){var m={output:"",status:""};var q="";var o="";var j=null;var p=null;var k="Extract Result:";if(a.xml){q=a.xml.xml;o=a.xml.documentElement.namespaceURI;if(o){q=q.replace(/ xmlns[^"']*["'][^"']*["']/gm,"");m.status="Namespace(s) temporarily removed."}j=g.createXML(q);p=j.selectNodes(l);if(!!p.length){for(var n=0;n<p.length;n++){k+=("\n"+p[n].xml)}m.output=k}else{m.status="No results from the XPath query performed."}}else{m.status="No Data to query against."}return m},validateXML:function(){var l=new ActiveXObject(d);var o;var n="<div class='@1@'>@2@</div>";var j="";var k={output:"",status:""};if(a.xml&&a.xsd){try{h=a.xml.documentElement.namespaceURI;l.add(h,a.xsd);a.xml.schemas=l;o=a.xml.validate();if(o.errorCode==0){j="ValidationPass";n=n.replace(/@1@/,"ValidationPassed");n=n.replace(/@2@/,"Validation Passed - No Errors")}else{j="ValidationFail";n=n.replace(/@1@/,"ValidationFailed");n=n.replace(/@2@/,"VALIDATION FAILED:</br>"+o.reason+" ("+o.errorCode+")")}}catch(m){j="ValidationFail";n=n.replace(/@1@/,"ValidationFailed");n=n.replace(/@2@/,"VALIDATION FAILED:</br>"+m.message+" ("+m.code+")")}l=null}else{n="";j="Validation requires both an XML Document and a Schema."}k.output=n;k.status=j;return k}};return i};
+		// View
+var clsViewManager=function(){var j;var o=document.body.className;var m=false;var n=true;var l=true;var f=false;var q=false;var h="Status information";var a={"Document filename":null,"XPath query":null,"Stylesheet filename":null,"Schema filename":null,"Extracted Namespace":null,"XML Data document":null,"XML Stylesheet":null,"XML Schema":null,"Status information":null};var t={xml:"Document filename",xsl:"Stylesheet filename",xsd:"Schema filename"};var c={xml:"XML Data document",xsl:"XML Stylesheet",xsd:"XML Schema"};var r={"XML data document mode":function(){k("xml")},"XML stylesheet document mode":function(){k("xsl")},"XML data schema mode":function(){k("xsd")},"Open document file":function(){var u=o||"xml";var v=j.openFile(u);if(!!v){if(!o){k("xml");g()}e(v,t[u],m);if("xsd"===o){j.getNamespace()}p(c[u]+" loaded.")}},"Show (raw) document":function(){j.showXML(o,c[o])},"Show document":function(){j.transformDocument(l,n)},"Perform XPath selection":function(){var u=a["XPath query"].innerText;if(u){j.selectXPath(u)}else{p("No XPath query to extract.")}},"Present result XML transformation":function(){j.transformDocument(f,m)},"Copy presented data to windows clipboard":function(){var u=a["XML Stylesheet"];var v="Nothing to capture.";if(u.innerText){window.clipboardData.setData("text",u.innerText);v="Output captured to clipboard."}p(v)},"Save presented data to file":function(){j.saveFile()},"Render as HTML, the result XML transformation":function(){j.transformDocument(f,n)},"Check the XML document against Schema":function(){j.validateXML()}};var s=function(){var u=document.getElementsByTagName("DIV");var v;for(var w=0;w<u.length;w+=1){v=u[w].title;if(v in a){a[v]=u[w]}}};var b=function(){var v=document.getElementsByTagName("BUTTON");for(var u=0;u<v.length;u+=1){v[u].onclick=function(){(r[this.title])()};if(!v[u].disabled){v[u].focus()}}};var g=function(){var v=document.getElementsByTagName("BUTTON");for(var u=0;u<v.length;u+=1){v[u].disabled=q}};var d=function(u,v,x){var w=e(u,c[o],v);if(w){w.className=("mainPanel "+x)}};var p=function(u){e(u,h,m)};var e=function(v,u,x){var w="ERROR: Output field '"+u+"' could not be located.";if(u in a){if(x){a[u].innerHTML=v}else{a[u].innerText=v}return a[u]}else{if(h in a){a[h].innerText=w}else{alert(w)}return null}};var k=function(u){document.body.className=u;o=u};var i={setController:function(u){j=u;s();b()},switchView:function(u){k(u)},writeStatus:function(u){p(u)},writeOutput:function(v,u,w){d(v,u,w)},writeNamespace:function(u){e(u,"Extracted Namespace",m)}};return i};
+		// Controller
+var clsAppController=(function(g,s){var t=g;var o=s;var k=false;var m=true;var l=true;var v=false;var r=true;var j=true;var e=false;var a="Msxml2.DOMDocument.6.0";var i="comdlg.lpk";var b=new ActiveXObject("Scripting.FileSystemObject");var c="LPK License Package\n{3d25aba1-caec-11cf-b34a-00aa00a28331}\nmWXDqNF2ekGyVjg4QtBySg=\nAQAAAA=\nhTwE+fL2GhCjyQgAKy9J+yQAAAA\nyADgAQwA0AEMAOAAyADAALQA0ADAAMQBBAC0AMQAwADEAQgAtAEEAMwBDADkALQAw\nADgAMAAwADIAQgAyAEYANAA5AEYAQgA=\n";var u={xml:"XML Document(*.xml)|*.xml",xsl:"XML Stylesheet(*.xsl)|*.xsl",xsd:"XML Schema(*.xsd)|*.xsd"};var f={xml:"",xsl:"",xsd:""};var q=function(y){var x=null;try{x=new ActiveXObject(a);x.async=false;x.validateOnParse=false;x.resolveExternals=true;x.loadXML(y);if(!!x.parseError.errorCode){var z=x.parseError;alert("ERROR: Create XML failed ("+z.errorCode+"): "+z.reason);x=null}}catch(w){alert("ERROR: Create XML failed ("+w.code+"): "+w.message)}return x};var d=function(){var y=b;try{y.GetFile(i);t.switchView("")}catch(w){var x=y.CreateTextFile(i,r);x.write(c);x.Close();location.reload(false)}};var p=function(y,A,x){var w=document.getElementById("cDialog");var z="";w.CancelError=j;try{w.filename=A;w.Filter=y;if(x){w.ShowOpen()}else{w.ShowSave()}z=w.filename}catch(B){}return z};var n={createXML:function(w){return q(w)}};var h={openFile:function(w){var x=(w in f)?f[w]:f.xml;x=p(u[w],x,l);if(x){if(o.openXMLDocument(x,w)){f[w]=x}else{x=""}}return x},getNamespace:function(){t.writeNamespace(o.getNamespace())},showXML:function(x,w){var y=o.getXML_Text(x);if(y){t.writeOutput(y,k,"DisplayOutput")}else{t.writeStatus("Error: No "+w+" to show.")}},transformDocument:function(y,x){var w=o.transformDocument(y);if(w.status){t.writeStatus(w.status)}if(w.output){t.writeOutput(w.output,x,"")}},selectXPath:function(w){var x=o.selectXPath(w);if(x.status){t.writeStatus(x.status)}if(x.output){t.writeOutput(x.output,k,"")}},saveFile:function(){var y=p(u.xml,"",v);if(y){var w=o.transformDocument(e);if(w.output){var z=q(w.output);if(z){try{z.save(y)}catch(x){w.status="Error: Failed to save the XML file."}}else{w.status="Error: The Transformed output was not XML."}}if(w.status){t.writeStatus(w.status)}}},validateXML:function(){var w=o.validateXML();if(w.output){t.writeOutput(w.output,m,w.status)}else{t.writeStatus(w.status)}}};o.setController(n);t.setController(h);d()})(clsViewManager(),clsDataModel());
+		</script>
+	</body>
+</html>
