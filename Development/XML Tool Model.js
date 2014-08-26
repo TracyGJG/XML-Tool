@@ -146,11 +146,13 @@
 
 			if (objDocuments["xml"]) {
 				strObjXPath = objDocuments["xml"].xml;
+/*
 				strQueryNamespace = objDocuments["xml"].documentElement.namespaceURI;
 				if (strQueryNamespace) {
 					strObjXPath = strObjXPath.replace(/ xmlns[^"']*["'][^"']*["']/gm,"");
 					objReturn.status = "Namespace(s) temporarily removed.";
 				}
+*/
 				xmlObjXPath = objController.createXML( strObjXPath);
 				objExtract = xmlObjXPath.selectNodes(pstrXPath);
 				if (!!objExtract.length) {

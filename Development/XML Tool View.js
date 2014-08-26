@@ -58,6 +58,13 @@ var clsViewManager = function() {
 				}
 				outputTextToStatusBar( objDocType[strView]+ " loaded.");
 			}
+
+			// Clear dependent views to avoid confusion.
+			if ("xml" == strView) {
+				document.querySelector("main.xsl div").innerHTML = "";
+				document.querySelector("main.xsd div").innerHTML = "";
+			}
+			document.querySelector("main."+ strView+ " div").innerHTML = "";
 		},
 		"Show (raw) document": function() {
 			objController.showXML( gstrCurrentView, objDocType[gstrCurrentView]);
