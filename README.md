@@ -1,7 +1,7 @@
 XML-Tool
 ========
 
-Utility for transforming and validating XML documents.
+Utility for transforming and validating XML documents
 
 The small application employs a Microsoft HyperText Application (HTA) container to present its User Interface. The application enables to user to upload XML, XSL and XSD documents held locally on the user's machine. 
 Facilities include the ability to:
